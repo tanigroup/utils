@@ -3,7 +3,7 @@ const minPage = 1;
 
 function buildResponse(data, params) {
   if (params) {
-    const [totalCount, items] = data;
+    const { count: totalCount, rows: items } = data;
     const totalPages = Math.ceil(totalCount / limit) || 1;
     const currentPage = Math.min(minPage, totalPages);
 
