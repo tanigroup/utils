@@ -1,9 +1,9 @@
 {
-  "name": "@yofriadi/tanitech-utils",
+  "name": "@tanigroup/utils",
   "description": "TaniHub package utility",
   "version": "0.1.0",
   "license": "MIT",
-  "repository": "git://github.com/yofriadi/tanitech-utils.git",
+  "repository": "git://github.com/tanigroup/utils.git",
   "engines": {
     "node": "^10.16.3",
     "npm": "^6.9.0",
