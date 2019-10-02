@@ -1,19 +1,22 @@
-const { camelCase } = require('lodash');
-const isPlainObject = require('is-plain-obj');
+const { isPlainObject, camelCase } = require('lodash');
 
 function camelCaseObj(data) {
-  return data && Object.keys(data).reduce((curr, name) => {
-    if (isPlainObject(data[name])) {
-      return { 
-        ...curr, 
-        [camelCase(name)]: camelCaseObj(data[name])
-      }
-    }
-    return {
-      ...curr,
-      [camelCase(name)]: data[name],
-    }
-  }, {})
+  return (
+    data &&
+    Object.keys(data).reduce(
+      (curr, name) =>
+        isPlainObject(data[name])
+          ? {
+              ...curr,
+              [camelCase(name)]: camelCaseObj(data[name]),
+            }
+          : {
+              ...curr,
+              [camelCase(name)]: data[name],
+            },
+      {},
+    )
+  );
 }
 
 module.exports = camelCaseObj;
