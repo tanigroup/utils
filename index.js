@@ -1,7 +1,3 @@
-const { snakeCaseObj, buildResponse, transformSort } = require('./src');
+const utilities = require('./src');
 
-module.exports = {
-  snakeCaseObj,
-  buildResponse,
-  transformSort,
-};
+module.exports = utilities;
