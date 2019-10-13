@@ -1,18 +1,18 @@
 const { isPlainObject, camelCase } = require('lodash');
 
-function camelCaseObj(data) {
+function camelCaseObj(obj) {
   return (
-    data &&
-    Object.keys(data).reduce(
-      (curr, name) =>
-        isPlainObject(data[name])
+    obj &&
+    Object.keys(obj).reduce(
+      (acc, name) =>
+        isPlainObject(obj[name])
           ? {
-              ...curr,
-              [camelCase(name)]: camelCaseObj(data[name]),
+              ...acc,
+              [camelCase(name)]: camelCaseObj(obj[name]),
             }
           : {
-              ...curr,
-              [camelCase(name)]: data[name],
+              ...acc,
+              [camelCase(name)]: obj[name],
             },
       {},
     )
