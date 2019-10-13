@@ -1,9 +1,13 @@
-const { isPlainObject } = require('lodash');
+import { isPlainObject } from 'lodash';
 
-function transformOperator(obj, operator) {
-  const newObj = {};
+type ObjectStringIndex = {
+  [index: string]: any
+}
 
-  Object.keys(obj).forEach((key) => {
+function transformOperator(obj: ObjectStringIndex, operator: any) {
+  const newObj: ObjectStringIndex = {};
+
+  Object.keys(obj).forEach((key: string) => {
     let newKey = key;
 
     if (key.startsWith('$')) {
@@ -14,7 +18,7 @@ function transformOperator(obj, operator) {
     if (isPlainObject(obj[key])) {
       newObj[newKey] = transformOperator(obj[key], operator);
     } else if (Array.isArray(obj[key])) {
-      newObj[newKey] = obj[key].map((nested) =>
+      newObj[newKey] = obj[key].map((nested: object) =>
         transformOperator(nested, operator),
       );
     } else {
@@ -25,4 +29,4 @@ function transformOperator(obj, operator) {
   return newObj;
 }
 
-module.exports = transformOperator;
+export default transformOperator;

@@ -1,10 +1,10 @@
-const { isPlainObject, snakeCase } = require('lodash');
+import { isPlainObject, snakeCase } from 'lodash';
 
-function snakeCaseObj(obj) {
+function snakeCaseObj(obj: {[index: string]: any}): object {
   return (
     obj &&
     Object.keys(obj).reduce(
-      (acc, name) =>
+      (acc: object, name: string) =>
         isPlainObject(obj[name])
           ? {
               ...acc,
@@ -19,4 +19,4 @@ function snakeCaseObj(obj) {
   );
 }
 
-module.exports = snakeCaseObj;
+export default snakeCaseObj;

@@ -1,10 +1,10 @@
-const { isPlainObject, camelCase } = require('lodash');
+import { isPlainObject, camelCase } from 'lodash';
 
-function camelCaseObj(obj) {
+function camelCaseObj(obj: {[index: string]: any}): object {
   return (
     obj &&
     Object.keys(obj).reduce(
-      (acc, name) =>
+      (acc: object, name: string) =>
         isPlainObject(obj[name])
           ? {
               ...acc,
@@ -19,4 +19,4 @@ function camelCaseObj(obj) {
   );
 }
 
-module.exports = camelCaseObj;
+export default camelCaseObj;
