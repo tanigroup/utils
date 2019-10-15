@@ -14,9 +14,13 @@ function transformOperator(obj, operator) {
     if (isPlainObject(obj[key])) {
       newObj[newKey] = transformOperator(obj[key], operator);
     } else if (Array.isArray(obj[key])) {
-      newObj[newKey] = obj[key].map((nested) =>
-        transformOperator(nested, operator),
-      );
+      newObj[newKey] = obj[key].map((nested) => {
+        if (isPlainObject(nested)) {
+          transformOperator(nested, operator);
+        }
+
+        return nested;
+      });
     } else {
       newObj[newKey] = obj[key];
     }
