@@ -16,7 +16,7 @@ function transformOperator(obj, operator) {
     } else if (Array.isArray(obj[key])) {
       newObj[newKey] = obj[key].map((nested) => {
         if (isPlainObject(nested)) {
-          transformOperator(nested, operator);
+          return transformOperator(nested, operator);
         }
 
         return nested;
