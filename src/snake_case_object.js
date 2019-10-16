@@ -1,10 +1,5 @@
 const { isPlainObject } = require('lodash');
-
-const snakeCase = (name) =>
-  name
-    .split(/(?=[A-Z])/)
-    .join('_')
-    .toLowerCase();
+const snakeCase = require('./helpers/snake_case');
 
 function snakeCaseObj(obj) {
   return (
