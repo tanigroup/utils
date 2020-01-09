@@ -1,13 +1,13 @@
 {
   "name": "@tanigroup/utils",
   "description": "TaniHub package utility",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "license": "MIT",
   "repository": "git://github.com/tanigroup/utils.git",
   "engines": {
-    "node": "^10.16.3",
-    "npm": "^6.9.0",
-    "yarn": "^1.17.3"
+    "node": ">=10.16.3",
+    "npm": ">=6.9.0",
+    "yarn": ">=1.17.3"
   },
   "scripts": {
     "lint": "eslint . --ext js",
